@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Particles from "react-particles-js";
+import { Input, Button } from "antd";
+import { UserOutlined, SecurityScanOutlined } from "@ant-design/icons";
 
-function App() {
+export default class App extends React.Component {
+
+  render() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="login-form">
+        <h2>MEZUZA.ID</h2>
+        <Input
+          placeholder="Ваш логин"
+          prefix={<UserOutlined className="site-form-item-icon" />}
+        />
+        <Input.Password
+          placeholder="Пароль"
+          prefix={<SecurityScanOutlined className="site-form-item-icon" />}
+        />
+        <Button type="primary">Войти</Button>
+      </form>
+      <Particles
+        params={{
+          particles: {
+            number: {
+              value: 150,
+            },
+            size: {
+              value: 3,
+            },
+          },
+          interactivity: {
+            events: {
+              onhover: {
+                enable: true,
+                mode: "grab",
+              },
+            },
+          },
+        }}
+      />
     </div>
   );
+  }
 }
-
-export default App;
